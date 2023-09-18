@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get "/bienvenida", to: "home#index"
 
+  root to: "home#index"
+
   get "articles/new", to: "articles#new"
   get "articles/:id", to: "articles#show"
   get "articles/:id/edit", to: "articles#edit"
