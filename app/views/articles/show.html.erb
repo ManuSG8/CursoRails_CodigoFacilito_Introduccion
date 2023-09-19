@@ -4,6 +4,12 @@
         <p>Escrito por: <strong><%= @article.user.email %></strong></p>
     </div>
     <div>
+        Categorias: 
+        <% @article.categories.each do |category| %>
+            <strong><%= category.title %></strong>
+        <% end %>
+    </div>
+    <div>
         <%= @article.content %>
     </div>
 
