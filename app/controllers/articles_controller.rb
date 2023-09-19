@@ -33,6 +33,9 @@ class ArticlesController < ApplicationController
         redirect_to root_path
     end
 
+    def from_author
+        @user = User.find(params[:user_id]) # Solo necesitamos el usuario, ya que podemos acceder a sus articulos desde la vista con @user.articles
+    end
 
     def find_article
         @article = Article.find(params[:id])
