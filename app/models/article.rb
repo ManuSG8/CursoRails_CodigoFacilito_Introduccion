@@ -11,7 +11,7 @@ class Article < ApplicationRecord
     def save_categories
         categories_array = category_elements.split(",")
         categories_array.each do |category_id|
-            HasCategory.create(article: self, category_id: category_id) # self hace referencia al articulo actual
+            HasCategory.find_or_create_by(article: self, category_id: category_id) # self hace referencia al articulo actual
         end
     end
 end
