@@ -5,4 +5,13 @@ class Article < ApplicationRecord
 
     has_many :has_categories
     has_many :categories, through: :has_categories
+
+    attr_accessor :category_elements
+
+    def save_categories
+        categories_array = category_elements.split(",")
+        categories_array.each do |category_id|
+            HasCategory.create(article: self, category_id: category_id) # self hace referencia al articulo actual
+        end
+    end
 end
