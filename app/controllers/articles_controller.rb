@@ -22,8 +22,10 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        @article = Article.create(title: params[:article][:title], content: params[:article][:content])
-        render json: @article
+        @article = Article.create(title: params[:article][:title], 
+                                    content: params[:article][:content], 
+                                    user: current_user) # Guardamos el usuario que escribio el articulo
+        redirect_to @article
     end
 
     def destroy
