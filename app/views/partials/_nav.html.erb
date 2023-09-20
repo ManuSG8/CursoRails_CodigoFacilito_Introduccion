@@ -5,6 +5,9 @@
     <li class="nav-item">
         <%= link_to "Todos los articulos", articles_path, class:"nav-link" %>
     </li>
+    <li class="nav-item">
+        <%= link_to "Categorias", categories_path, class:"nav-link" %>
+    </li>
     <% if user_signed_in? %>
         <li class="nav-item">
             <%= link_to "Escribir", new_article_path, class:"nav-link" %>

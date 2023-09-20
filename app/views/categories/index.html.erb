@@ -2,7 +2,7 @@
 
 <h1>Categories</h1>
 
-<table>
+<table class=" large-container center-block table">
   <thead>
     <tr>
       <th>Title</th>
@@ -29,5 +29,7 @@
 <br>
 
 <% if current_user %>
-  <%= link_to 'New Category', new_category_path %>
+  <div class="large-container center-block">
+    <%= link_to 'New Category', new_category_path %>
+  </div>
 <% end %>
