@@ -2,6 +2,9 @@
     <h1><%= @article.title %></h1>
     <div>
         <p>Escrito por: <strong><%= @article.user.email %></strong></p>
+        <% if @article.user.avatar.present? %>
+            <%= image_tag url_for(@article.user.avatar), height: 150 %>
+        <% end %>
     </div>
     <div class="margin-top">
         <p class="label">Categorias:</p> 

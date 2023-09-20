@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   
   get "/bienvenida", to: "home#index"
 
+  get "perfil", to: "users#edit"
+  resources :users, only: %i[ update ]
+
   root to: "home#index"
 
   # get "articles/user/:user_id", to: "articles#from_author" # Podemos añadir esta ruta a resources :articles
