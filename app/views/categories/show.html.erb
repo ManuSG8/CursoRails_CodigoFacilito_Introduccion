@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
+<div clas="large-container center-block">
+  <h1>
+    <strong>Articulos publicados en :</strong>
+    <%= @category.title %>
+  </h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
+  <p>
+    <%= render @category.articles %>
+  </p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @category.color %>
-</p>
-
-<% if current_user %>
-  <%= link_to 'Edit', edit_category_path(@category) %> |
-<% end %>
-<%= link_to 'Back', categories_path %>
+  <% if current_user %>
+    <%= link_to 'Edit', edit_category_path(@category) %> |
+  <% end %>
+  <%= link_to 'Back', categories_path %>
+</div>
