@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
     before_action :find_article, only: [:show, :edit, :update, :destroy] # Tambien se puede hacer a la inversa -> except: [:new, :create]
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+    before_action :authorize_user, only: [:edit, :update]
 
     def index
         @articles = Article.all
@@ -48,4 +49,11 @@ class ArticlesController < ApplicationController
     def article_params
         params.require(:article).permit(:title, :content, category_elements: [])
     end
+
+    def authorize_user
+        unless @article.user == current_user
+          flash[:alert] = "No tienes permiso para editar este artículo."
+          redirect_to articles_path
+        end
+      end
 end
